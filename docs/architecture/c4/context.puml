@@ -1,1 +1,23 @@
 
+@startuml PolifunctionsSDK - System Context
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title System Context Diagram for PolifunctionsSDK
+
+Person(domainScientist, "Domain Scientist", "A researcher working in quantum physics, scientific computing, or verification")
+Person(softwareDeveloper, "Software Developer", "Developer integrating polifunctions into applications")
+
+System(polifunctionsSDK, "PolifunctionsSDK", "Provides a formal framework and implementation for working with multi-valued mathematical functions")
+
+System_Ext(quantumFramework, "Quantum Computing Framework", "External systems like Qiskit, Cirq, etc.")
+System_Ext(scientificLibrary, "Scientific Computing Library", "External libraries like NumPy, SciPy, etc.")
+System_Ext(verificationTool, "Formal Verification Tool", "Tools for program verification")
+
+Rel(domainScientist, polifunctionsSDK, "Uses to model multi-valued scenarios")
+Rel(softwareDeveloper, polifunctionsSDK, "Integrates into applications")
+
+Rel(polifunctionsSDK, quantumFramework, "Interfaces with")
+Rel(polifunctionsSDK, scientificLibrary, "Leverages")
+Rel(polifunctionsSDK, verificationTool, "Supports")
+
+@enduml
