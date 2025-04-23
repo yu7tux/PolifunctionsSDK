@@ -6,6 +6,8 @@ A software development kit for implementing and using multi-valued mathematical 
 
 PolifunctionsSDK is an open-source project that provides a formal framework for working with polifunctions - mathematical objects that extend the concept of functions to return multiple values simultaneously. Our goal is to create a robust ecosystem of tools that bridge the gap between theoretical mathematics and practical applications across different domains.
 
+The SDK implements the theoretical framework introduced in ["Polifunctions: A Formal Framework for Multi-Valued Mathematical Functions"](https://osf.io/ywd4x_v1) (Bakalov, 2025).
+
 ## Key Application Areas
 
 - **Quantum Computing**: Natural representation of quantum superposition and entanglement
@@ -33,3 +35,7 @@ Contributions are welcome! If you're interested in mathematics, computing theory
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+## References
+
+Bakalov, A. (2025). Polifunctions: A Formal Framework for Multi-Valued Mathematical Functions. Preprint available at: https://osf.io/ywd4x_v1
