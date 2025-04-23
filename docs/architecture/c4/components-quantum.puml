@@ -1,1 +1,38 @@
+@startuml PolifunctionsSDK - Quantum Components
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
+title Component Diagram for PolifunctionsSDK Quantum Extension
+
+Container(coreMath, "Core Math Layer", "Rust", "Core polifunction abstractions and operations")
+
+Container_Boundary(quantumExt, "Quantum Extension") {
+    Component(quantumStates, "Quantum States", "Rust", "Representation of quantum states as polifunctions")
+    Component(superposition, "Superposition", "Rust", "Modeling quantum superposition with polifunctions")
+    Component(operators, "Quantum Operators", "Rust", "Quantum operators implementation")
+    Component(measurement, "Measurement", "Rust", "Quantum measurement process")
+    Component(entanglement, "Entanglement", "Rust", "Modeling quantum entanglement")
+    Component(algorithms, "Quantum Algorithms", "Rust", "Implementations of quantum algorithms using polifunctions")
+    Component(qiskit, "Qiskit Integration", "Python/Rust", "Integration with the Qiskit framework")
+    Component(cirq, "Cirq Integration", "Python/Rust", "Integration with the Cirq framework")
+}
+
+Rel(quantumStates, coreMath, "Extends")
+Rel(superposition, coreMath, "Uses")
+Rel(operators, coreMath, "Uses")
+Rel(measurement, coreMath, "Uses")
+Rel(entanglement, coreMath, "Uses")
+Rel(algorithms, coreMath, "Uses")
+
+Rel(superposition, quantumStates, "Manipulates")
+Rel(operators, quantumStates, "Transforms")
+Rel(measurement, quantumStates, "Collapses")
+Rel(entanglement, quantumStates, "Creates and manages")
+Rel(algorithms, operators, "Uses")
+Rel(algorithms, quantumStates, "Operates on")
+
+Rel(qiskit, quantumStates, "Maps to/from")
+Rel(qiskit, operators, "Translates")
+Rel(cirq, quantumStates, "Maps to/from")
+Rel(cirq, operators, "Translates")
+
+@enduml
