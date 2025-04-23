@@ -70,3 +70,37 @@ pub enum PolifunctionValue<T> {
     Distribution(ProbabilityDistribution<T>),
     // Other variants...
 }
+
+Error Handling
+Errors are handled through a dedicated error type:
+
+pub enum PolifunctionError {
+    DomainError,
+    ComputationError,
+    ConvergenceError,
+    // Other error types...
+}
+
+Concurrency Model
+The core implementation is designed to be thread-safe:
+
+Immutable by default for most operations
+Thread-safe data structures for concurrent access
+Explicit synchronization where necessary
+
+Extension Points
+The Core SDK is designed to be extended in several ways:
+
+New Polifunction Types: Implementing the PolifunctionBase trait
+Custom Domains and Codomains: Creating new domain and codomain types
+New Operations: Adding operations on existing polifunction types
+Integration Points: Connecting with domain-specific mathematical constructs
+
+Performance Considerations
+Performance is a key consideration in the Core SDK design:
+
+Memory layout optimization for common operations
+Lazy evaluation where appropriate
+Specialized implementations for common cases
+Benchmarking infrastructure to measure and improve performance
+
