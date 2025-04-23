@@ -1,1 +1,45 @@
 
+@startuml PolifunctionsSDK - Containers
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title Container Diagram for PolifunctionsSDK
+
+Person(domainScientist, "Domain Scientist", "A researcher working in quantum physics, scientific computing, or verification")
+Person(softwareDeveloper, "Software Developer", "Developer integrating polifunctions into applications")
+
+System_Boundary(polifunctionsSDK, "PolifunctionsSDK") {
+    Container(coreMath, "Core Math Layer", "Rust", "Implements fundamental polifunction types, operations, and abstractions")
+    
+    Container(rustLib, "Rust Library", "Rust", "Native Rust API for working with polifunctions")
+    Container(cppLib, "C++ Library", "C++", "C++ bindings for scientific computing applications")
+    Container(pythonLib, "Python Library", "Python", "Python bindings for data science and quantum computing")
+    Container(dotnetLib, ".NET Library", "C#", "Bindings for .NET applications")
+    
+    Container(quantumExt, "Quantum Extension", "Rust/C++", "Specialized implementations for quantum computing")
+    Container(sciCompExt, "Scientific Computing Extension", "C++", "Implementations for numerical methods and scientific applications")
+    Container(verifyExt, "Verification Extension", "Rust", "Tools for formal reasoning with polifunctions")
+    
+    Container(vizTools, "Visualization Tools", "TypeScript/JavaScript", "Tools for visualizing and analyzing polifunctions")
+    Container(examples, "Jupyter Notebooks", "Python", "Interactive examples and tutorials")
+}
+
+Rel(domainScientist, examples, "Learns from")
+Rel(domainScientist, vizTools, "Explores data with")
+Rel(softwareDeveloper, rustLib, "Uses")
+Rel(softwareDeveloper, cppLib, "Uses")
+Rel(softwareDeveloper, pythonLib, "Uses")
+Rel(softwareDeveloper, dotnetLib, "Uses")
+
+Rel(rustLib, coreMath, "Depends on")
+Rel(cppLib, coreMath, "Depends on (via FFI)")
+Rel(pythonLib, coreMath, "Depends on (via FFI)")
+Rel(dotnetLib, coreMath, "Depends on (via FFI)")
+
+Rel(quantumExt, coreMath, "Extends")
+Rel(sciCompExt, coreMath, "Extends")
+Rel(verifyExt, coreMath, "Extends")
+
+Rel(examples, pythonLib, "Demonstrates")
+Rel(vizTools, pythonLib, "Uses")
+
+@enduml
