@@ -1,1 +1,43 @@
+@startuml PolifunctionsSDK - Core Components
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
+title Component Diagram for PolifunctionsSDK Core
+
+Container_Boundary(coreMath, "Core Math Layer") {
+    Component(baseTypes, "Base Types", "Rust", "Defines fundamental mathematical types and traits")
+    Component(polifunctionTraits, "Polifunction Traits", "Rust", "Core traits defining polifunction behavior")
+    Component(setValued, "Set-Valued Functions", "Rust", "Implementation of set-valued polifunctions")
+    Component(intervalValued, "Interval-Valued Functions", "Rust", "Implementation of interval-valued polifunctions")
+    Component(operations, "Operations", "Rust", "Algebraic operations on polifunctions")
+    Component(composition, "Composition", "Rust", "Mechanisms for composing polifunctions")
+    Component(conversion, "Type Conversion", "Rust", "Conversion between different types of polifunctions")
+    Component(ffiLayer, "FFI Layer", "Rust/C", "Foreign Function Interface for language interoperability")
+}
+
+Container_Boundary(langLibs, "Language Libraries") {
+    Component(rustAPI, "Rust API", "Rust", "Native Rust interface")
+    Component(cAPI, "C API", "C", "C bindings for interoperability")
+}
+
+Rel(rustAPI, baseTypes, "Uses")
+Rel(rustAPI, polifunctionTraits, "Uses")
+Rel(rustAPI, setValued, "Uses")
+Rel(rustAPI, intervalValued, "Uses")
+Rel(rustAPI, operations, "Uses")
+Rel(rustAPI, composition, "Uses")
+Rel(rustAPI, conversion, "Uses")
+
+Rel(cAPI, ffiLayer, "Uses")
+
+Rel(setValued, baseTypes, "Depends on")
+Rel(intervalValued, baseTypes, "Depends on")
+Rel(setValued, polifunctionTraits, "Implements")
+Rel(intervalValued, polifunctionTraits, "Implements")
+Rel(operations, polifunctionTraits, "Uses")
+Rel(composition, polifunctionTraits, "Uses")
+Rel(conversion, polifunctionTraits, "Uses")
+Rel(ffiLayer, baseTypes, "Exposes")
+Rel(ffiLayer, polifunctionTraits, "Exposes")
+Rel(ffiLayer, operations, "Exposes")
+
+@enduml
